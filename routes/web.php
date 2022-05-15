@@ -13,6 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+ Route::get('/', 'VideoController@index');
+ 
+ Route::get('/uploader', 'VideoController@uploader')->name('uploader');
+ 
+Route::post('/upload', 'VideoController@store')->name('upload');
