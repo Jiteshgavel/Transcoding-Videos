@@ -18,7 +18,14 @@ use Illuminate\Support\Facades\Route;
 // });
 
  Route::get('/', 'VideoController@index');
- 
  Route::get('/uploader', 'VideoController@uploader')->name('uploader');
- 
-Route::post('/upload', 'VideoController@store')->name('upload');
+ Route::post('/upload', 'VideoController@store')->name('upload');
+
+Route::get('file-upload', 'FileUploadController@fileUpload')->name('file.upload');
+Route::post('file-upload', 'FileUploadController@fileUploadPost')->name('file.upload.post');
+
+
+// upload file
+Route::resource('books', 'BookController');
+Route::get('books/{uuid}/download', 'BookController@download')->name('books.download');
+// Route::get('books/{uuid}/download', 'BookController@download')->name('books.download');
